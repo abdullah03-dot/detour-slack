@@ -1,0 +1,19 @@
+\begin{table}[!t]
+\centering
+\caption{Mode~R latency and delivery rate of the routers of main-text Table~\ref{tab:desrouting} ($5\times5$, $r=3$, 1\,kHz, $\kappa=2$\,ms/km): mean latency (ms, from the start of an attempt until the delivered pair has been stored for $\kappa D$, over attempts with a path) / delivery rate (pairs per second of attempt time; attempts without a path are charged the mean attempt time).}
+\label{tab:deslatency}
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Setting & BFS & PG & Dijkstra & Oracle\\
+\midrule
+dephasing, $s=0$ & 28.9 / 23.0 & 28.0 / 24.5 & 28.0 / 24.6 & 28.0 / 24.5\\
+dephasing, $s=1$ & 29.2 / 25.1 & 27.7 / 34.4 & 27.7 / 35.1 & 27.6 / 35.2\\
+depolarizing, $s=0$ & 28.6 / 23.4 & 27.9 / 24.9 & 27.9 / 25.0 & 27.9 / 25.0\\
+depolarizing, $s=1$ & 28.6 / 25.7 & 27.7 / 34.4 & 27.6 / 35.2 & 27.7 / 35.2\\
+baseline, $s=0$ & 28.6 / 23.4 & 27.9 / 24.9 & 27.8 / 25.1 & 27.8 / 25.2\\
+baseline, $s=1$ & 28.6 / 25.6 & 27.8 / 34.1 & 27.8 / 34.8 & 27.8 / 34.8\\
+\bottomrule
+\end{tabular}
+\end{table}

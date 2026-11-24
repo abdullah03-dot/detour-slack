@@ -1,0 +1,25 @@
+\begin{table*}[!t]
+\centering
+\caption{Design-chart check on larger grids: smallest coherence time $T_2$ (s) for which the corner-to-corner request is routing-sensitive ($s\ge1$) with BBPSSW: closed form (optimistic accounting), pessimistic all-links-wait accounting and discrete-event simulation (Mode~R, mean rule, 95\% bootstrap interval; median rule); $\kappa=2$\,ms/km (Mode~R also counts the light delay of the classical messages).}
+\label{tab:dessix}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{ccccccccc}
+\toprule
+Grid & $r$ & $R$ (Hz) & Memory & Closed form & Pessimistic & Simulation, mean rule & Median rule & Mean rule/closed \\
+\midrule
+$6\times6$ & 4 & 1000 & dephasing & 0.435 & 1.71 & 0.997 [0.977, 1.01] & 0.951 & 2.29\\
+$6\times6$ & 4 & 1000 & depolarizing & 0.672 & 2.64 & 1.51 [1.48, 1.54] & 1.45 & 2.25\\
+$6\times6$ & 4 & 100 & dephasing & 2.73 & 15.5 & 8.31 [8.08, 8.52] & 7.73 & 3.04\\
+$6\times6$ & 4 & 100 & depolarizing & 4.22 & 23.9 & 12.8 [12.3, 13.1] & 11.9 & 3.02\\
+$6\times6$ & 5 & 1000 & dephasing & 0.460 & 2.17 & 1.17 [1.15, 1.19] & 1.13 & 2.55\\
+$6\times6$ & 5 & 1000 & depolarizing & 0.722 & 3.41 & 1.77 [1.74, 1.80] & 1.69 & 2.45\\
+$6\times6$ & 5 & 100 & dephasing & 3.54 & 20.7 & 10.4 [10.1, 10.7] & 9.84 & 2.95\\
+$6\times6$ & 5 & 100 & depolarizing & 5.56 & 32.4 & 16.4 [15.9, 16.8] & 15.5 & 2.95\\
+$7\times7$ & 5 & 1000 & dephasing & 0.571 & 3.01 & 1.57 [1.55, 1.60] & 1.50 & 2.76\\
+$7\times7$ & 5 & 1000 & depolarizing & 0.890 & 4.69 & 2.39 [2.35, 2.43] & 2.28 & 2.68\\
+$7\times7$ & 5 & 100 & dephasing & 4.23 & 28.6 & 14.3 [14.0, 14.6] & 13.7 & 3.38\\
+$7\times7$ & 5 & 100 & depolarizing & 6.59 & 44.6 & 22.1 [21.6, 22.5] & 21.1 & 3.35\\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,9 @@
+# conda env create -f environment.yml   (then: conda activate qrf-des)
+name: qrf-des
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - sequence==1.3.0        # pulls numpy, scipy, matplotlib, qutip, ... (versions tested: requirements-tested.txt)

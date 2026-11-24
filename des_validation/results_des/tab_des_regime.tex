@@ -1,0 +1,25 @@
+\begin{table*}[t]
+\centering
+\caption{Discrete-event check (\textnormal{SeQUeNCe} kernel, density matrices, gate-level purification and swapping) of the regime calls at $T_2=0.1$\,s (baseline map), 0.2\,s (per-qubit dephasing) and 0.3\,s (per-qubit depolarizing). The last two lie just below the coherence times at which these channels reproduce the baseline regime map (Section~\ref{sec:latency}), so that the three channels give different calls. $s$: detour slack; $\delta$: closed-form margin at $R=\infty$. Mode~F uses the model's assumptions (an implementation cross-check); DEJMPS replaces twirled BBPSSW (ideal gates, Mode~F); Mode~R resolves the storage time of every stored pair at raw-pair rate $R$ (calls on the mean delivered fidelity; closed form at the same $R$ in parentheses).}
+\label{tab:des}
+\footnotesize
+\begin{tabular}{llcccccc}
+\toprule
+Grid & Memory & $s$ (closed) & $\delta$ & $s$ Mode F & $s$ DEJMPS & $s$ Mode R, $10^5$\,Hz & $s$ Mode R, $10^4$\,Hz\\
+\midrule
+$5\times5$, $r=3$ & dephasing & 0 & 0.0022 & 0 & $\ge$8 (13) & 0 (0) & 0 (0)\\
+$5\times5$, $r=3$ & depolarizing & 0 & 0.0031 & 0 & $\ge$8 (12) & 0 (0) & 0 (0)\\
+$5\times5$, $r=3$ & baseline & 1 & 0.0039 & 1 & $\ge$8 (14) & 1 (1) & 0 (1)\\
+$5\times5$, $r=4$ & dephasing & 2 & 0.0080 & 2 & $\ge$8 (13) & 2 (2) & 1 (2)\\
+$5\times5$, $r=4$ & depolarizing & 2 & 0.0093 & 2 & $\ge$8 (12) & 2 (2) & 1 (2)\\
+$5\times5$, $r=4$ & baseline & 2 & 0.0009 & 2 & $\ge$8 (14) & 2 (2) & 1 (2)\\
+$6\times6$, $r=3$ & dephasing & $-1$ & 0.0103 & $-1$ & $\ge$8 (12) & $-1$ ($-1$) & $-1$ ($-1$)\\
+$6\times6$, $r=3$ & depolarizing & $-1$ & 0.0116 & $-1$ & $\ge$8 (11) & $-1$ ($-1$) & $-1$ ($-1$)\\
+$6\times6$, $r=3$ & baseline & $-1$ & 0.0034 & $-1$ & $\ge$8 (13) & $-1$ ($-1$) & $-1$ ($-1$)\\
+$6\times6$, $r=4$ & dephasing & 1 & 0.0059 & 1 & $\ge$8 (12) & 1 (1) & 0 (0)\\
+$6\times6$, $r=4$ & depolarizing & 1 & 0.0045 & 1 & $\ge$8 (11) & 1 (1) & 0 (0)\\
+$6\times6$, $r=4$ & baseline & 1 & 0.0074 & 1 & $\ge$8 (13) & 1 (1) & 0 (1)\\
+\bottomrule
+\end{tabular}
+\\[2pt]{\scriptsize DEJMPS: simulation (Bell-diagonal states, no twirl), with the closed form of Supplementary Section~\ref{sec:supp-dejmps} in parentheses; $\ge$: slack reached the enumeration depth of the simulation ($h^*+8$ for DEJMPS; BBPSSW profiles are enumerated to $h^*+4$).}
+\end{table*}

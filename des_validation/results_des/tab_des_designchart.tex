@@ -1,0 +1,24 @@
+\begin{table*}[t]
+\centering
+\caption{Smallest coherence time $T_2$ (s) for which the $5\times5$ request with BBPSSW is routing-sensitive ($s\ge1$): closed form (optimistic storage accounting $t=\kappa D+C_r/R$), the pessimistic all-links-wait accounting (Section~\ref{sec:latency}) and the discrete-event simulation (Mode~R): mean rule (mean $F^*(1)\ge F_{\rm th}$, 95\% bootstrap interval) and median rule ($F^*(1)\ge F_{\rm th}$ in at least half of the deliveries); $\kappa=2$\,ms/km (Mode~R also counts the light delay of the classical messages, about 0.25\% of $\kappa$).}
+\label{tab:desdesign}
+\footnotesize
+\begin{tabular}{cccccccc}
+\toprule
+$r$ & $R$ (Hz) & Memory & Closed form & Pessimistic & Simulation, mean rule & Median rule & Mean rule/closed\\
+\midrule
+3 & 1000 & dephasing & 0.386 & 1.09 & 0.731 [0.718, 0.746] & 0.688 & 1.89\\
+3 & 1000 & depolarizing & 0.591 & 1.67 & 1.09 [1.07, 1.11] & 1.03 & 1.84\\
+3 & 1000 & baseline & 0.166 & 0.525 & 0.330 [0.324, 0.340] & 0.308 & 1.99\\
+3 & 100 & dephasing & 1.97 & 8.99 & 5.21 [5.09, 5.35] & 4.84 & 2.65\\
+3 & 100 & depolarizing & 3.01 & 13.8 & 8.00 [7.78, 8.25] & 7.47 & 2.66\\
+3 & 100 & baseline & 0.846 & 4.45 & 2.46 [2.38, 2.54] & 2.31 & 2.91\\
+4 & 1000 & dephasing & 0.303 & 1.07 & 0.639 [0.622, 0.653] & 0.610 & 2.11\\
+4 & 1000 & depolarizing & 0.472 & 1.67 & 0.971 [0.945, 0.997] & 0.918 & 2.06\\
+4 & 1000 & baseline & 0.136 & 0.537 & 0.301 [0.294, 0.308] & 0.286 & 2.21\\
+4 & 100 & dephasing & 2.03 & 9.73 & 5.22 [5.11, 5.33] & 4.87 & 2.57\\
+4 & 100 & depolarizing & 3.17 & 15.2 & 7.98 [7.80, 8.15] & 7.43 & 2.51\\
+4 & 100 & baseline & 0.914 & 4.94 & 2.56 [2.49, 2.64] & 2.39 & 2.80\\
+\bottomrule
+\end{tabular}
+\end{table*}
