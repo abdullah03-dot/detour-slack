@@ -15,7 +15,6 @@ venv/
 *.fls
 *.fdb_latexmk
 *.toc
-paper/main.pdf
 figs/fig_architecture.pdf.tmp
 
 # PNG copies written next to the PDF figures (the paper uses the PDFs)

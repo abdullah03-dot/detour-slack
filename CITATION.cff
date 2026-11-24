@@ -6,7 +6,7 @@ license: MIT
 authors:
   - family-names: "ALI"
     given-names: "ABDULLAH SHABBIR"
-repository-code: "https://github.com/abdullah03-dot/Routing-Purification-Interaction"
+repository-code: "https://github.com/abdullah03-dot/detour-slack"
 preferred-citation:
   type: article
   title: "When Routing Algorithms Matter: Purification Thresholds and Detour Slack in Quantum Networks"

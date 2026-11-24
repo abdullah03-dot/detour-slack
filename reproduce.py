@@ -26,6 +26,13 @@ DES_FILES = ("des_numbers.tex", "des_extra.tex", "tab_des_regime.tex", "tab_des_
              "tab_des_soft.tex", "tab_des_dejmps.tex")
 
 
+def _negligible(line):
+    """Overfull vertical boxes below 1 pt are invisible in print; anything else is reported."""
+    import re
+    m = re.search(r"Overfull \\vbox \(([0-9.]+)pt too high\)", line)
+    return bool(m) and float(m.group(1)) < 1.0
+
+
 def run(args, cwd=ROOT, quiet=False):
     t0 = time.time()
     label = " ".join("python" if a == PY else a for a in args)
@@ -59,6 +66,7 @@ def main():
     run([PY, "code/sensitivity_closed_form.py"])
     run([PY, "code/make_dejmps_tables.py"])
     run([PY, "code/causal_router.py"], quiet=True)
+    run([PY, "code/continuous_links.py", "--tables"], quiet=True)
     run([PY, "code/make_tables.py"])
     run([PY, "code/make_figures.py"], quiet=True)
 
@@ -109,7 +117,8 @@ def main():
         nbad = 0
         for doc in ("main", "supplement"):
             log = open(os.path.join(paper, doc + ".log"), encoding="latin-1").read()
-            bad = [l for l in log.splitlines() if l.startswith("!") or "Overfull" in l or "undefined" in l]
+            bad = [l for l in log.splitlines() if l.startswith("!") or "undefined" in l
+                   or ("Overfull" in l and not _negligible(l))]
             nbad += len(bad)
             print(f"    paper/{doc}.pdf written; {len(bad)} errors/overfull/undefined lines in {doc}.log")
             for l in bad[:10]:

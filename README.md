@@ -28,14 +28,15 @@ extra hops a clean detour can afford (Corollary 1).
 |---|---|
 | Closed-form slack vs. simulation | agree in all 345 grid configurations (consistency check: same physics) |
 | Each BBPSSW round (F_th = 0.8) | extends the routing-sensitive regime by about one grid size; one to two at lower thresholds |
-| Charging raw-pair generation time | gives a finite optimal number of rounds and a design chart for the required coherence time |
+| Including raw-pair generation time | gives a finite optimal number of rounds and a design chart for the required coherence time |
 | Discrete-event, density-matrix check (SeQUeNCe kernel) | reproduces every regime call, and every routing outcome on the headline configuration, under the model's assumptions; with each memory's storage time resolved, routing needs 1.8–3.4× the closed-form coherence time, between the optimistic and pessimistic accountings in every case (24 of 24); calls with small upper margins shift; near the boundary the calls are soft (sweep across the boundary in block S3) |
 | DEJMPS (closed form, certified by explicit paths) | routing-sensitive with 2 rounds on every grid 4×4–8×8, where BBPSSW needs 3–6; slack saturates from 3 rounds |
+| Continuous link quality (E15, 240,000 paired trials) | the regime maps are results for links that are either good or broken: with gamma-distributed link noise the nominal slack no longer locates the routing gain, the local router's share of the gain becomes erratic, and Dijkstra stays within 1.8 pp of the oracle |
 | Causal exact objective (no swap foreknowledge) | succeeds on exactly the oracle's trials in all 45,000 routing-sensitive trials of Table III |
 | Headline cell (5×5, r = 3, n = 5000) | shortest path 73.16 %, PG (local) 96.62 %, exact oracle 98.24 % |
 | Dijkstra on −log F | matched the exact oracle in every simulated configuration with unusable noisy links (not guaranteed: a counterexample is given) |
 
-In total: 1,227,000 paired Monte Carlo trials in 912 configurations, plus the discrete-event runs.
+In total: 1,227,000 paired Monte Carlo trials in 912 configurations, 240,000 more with continuous link quality (E15), plus the discrete-event runs.
 
 ## Repository layout
 
@@ -50,6 +51,7 @@ In total: 1,227,000 paired Monte Carlo trials in 912 configurations, plus the di
 │   ├── belldiag.py, qunet_bd.py  Bell-diagonal algebra (DEJMPS) and its simulator mode
 │   ├── make_dejmps_tables.py DEJMPS vs BBPSSW regime map (Supplementary Table S1)
 │   ├── causal_router.py      exact end-to-end objective without swap foreknowledge vs the oracle
+│   ├── continuous_links.py   block E15: continuously distributed link quality (Supplementary Table S7)
 │   ├── sensitivity_closed_form.py  fidelity-threshold sweep; kappa/T2/R scaling invariance
 │   ├── validate_physics.py   density-matrix checks of BBPSSW, swapping, gate noise, memory channels
 │   ├── counterexample.py     five-node graph where Dijkstra(−log F) is not optimal
@@ -60,7 +62,7 @@ In total: 1,227,000 paired Monte Carlo trials in 912 configurations, plus the di
 │   └── test_*.py             oracles vs brute-force enumeration; Bell-diagonal algebra vs density matrices
 ├── results_tqe/              stored Monte Carlo results (inputs to every table and figure)
 │   ├── study_tqe.json        per-configuration summaries, paired statistics, slack, viable paths
-│   ├── trials/E1..E13.npz    per-trial success, fidelity and hop count for every policy
+│   ├── trials/E*.npz         per-trial success, fidelity and hop count for every policy
 │   └── *.json                closed form, physics validation, counterexample, sensitivity
 ├── des_validation/           discrete-event, density-matrix validation on the SeQUeNCe 1.3 kernel
 │   ├── README.md             what it tests, what is shared with the scalar model, how to run it
@@ -88,6 +90,7 @@ undefined reference. It works on Linux, macOS and Windows.
 
 ```bash
 python code/run_study_tqe.py                 # Monte Carlo blocks E1–E13 (about 15 min on 2 cores)
+python code/continuous_links.py              # block E15 (about 3 min)
 
 cd des_validation                            # discrete-event run: own environment (Python >= 3.12)
 conda env create -f environment.yml && conda activate qrf-des
